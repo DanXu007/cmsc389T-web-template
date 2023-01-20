@@ -7,7 +7,7 @@
 
 FROM node:10-alpine
 
-RUN mkdir -p <PATH1> && chown -R node:node <PATH1>
+RUN mkdir -p /home/node/app && chown -R node:node /home/node/app
 
 USER node
 
@@ -17,7 +17,7 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY <???> . .
+COPY --chown node:node . .
 
 EXPOSE 8080
 
